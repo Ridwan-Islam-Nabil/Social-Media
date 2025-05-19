@@ -5,7 +5,9 @@ namespace Social.Media.api.DTOs;
 
 public class RegisterDto
 {
+    [Required] public string Username { get; set; } = string.Empty;
+
     [Required]
-    public required string Username { get; set; }
-    public required string Password { get; set; }
+    [StringLength(8, MinimumLength = 3)]
+    public string Password { get; set; } = string.Empty;
 }
