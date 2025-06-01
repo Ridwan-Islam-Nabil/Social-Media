@@ -1,6 +1,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Social.Media.api.Data;
+using Social.Media.api.Helpers;
 using Social.Media.api.Interfaces;
 using Social.Media.api.Services;
 
@@ -17,6 +18,8 @@ public static class ApllicationServiceEntensions
         });
         services.AddCors();
         services.AddScoped<ITokenService, TokenService>();
+        services.AddScoped<IUserRepository, UserRepository>();
+        services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
         return services;
     }
